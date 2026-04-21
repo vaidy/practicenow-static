@@ -27,7 +27,6 @@ The previous WordPress site was infected with malware and was time-consuming to 
 | `/about/` | About PracticeNow / Spark |
 | `/teachers/` | Customer studios + testimonials |
 | `/features/` | All 9 product capabilities, in one page |
-| `/feature-updates/` | Release notes |
 | `/support/` | Onboarding + how to contact us |
 | `/privacy/` | Privacy policy |
 | `/terms-conditions/` | User terms & conditions |
@@ -70,7 +69,7 @@ Source: `css/input.css` (Tailwind v4 with `@theme` brand tokens and `@source` gl
 - Tailwind CSS is precompiled in `css/tailwind.css` (copied from the Sparktutor marketing site).
 - `js/layout.js` injects the header, footer, favicon and floating WhatsApp button on every page.
   - Brand wordmark: `PracticeNow` next to a small "PN" rounded-square logo.
-  - Nav: Home · Features · Teachers · Pricing (→ app) · About · Support.
+  - Nav: Features · Teachers · Support · Pricing (→ app) · About.
   - CTA: **Try it Free** → `https://app.practicenow.us/trial/scale-non-teaching-tasks`.
 
 To change nav/footer content site-wide, edit only `js/layout.js`.
@@ -120,7 +119,7 @@ This subfolder is a self-contained git repo (`git init` already done).
 All pages are hand-written HTML using Tailwind utility classes.
 
 - Marketing pages (home / about / features / support / teachers): edit the `index.html` directly.
-- Legal + release-notes (`privacy`, `terms-conditions`, `terms-service`, `feature-updates`): regenerate via
+- Legal pages (`privacy`, `terms-conditions`, `terms-service`): regenerate via
 
   ```sh
   python3 scripts/build_legal_pages.py

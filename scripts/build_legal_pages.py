@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Generate the static HTML for PracticeNow's legal pages and the Feature Updates
-release-notes page from the extracted WordPress content.
+Generate the static HTML for PracticeNow's legal pages from the extracted
+WordPress content.
 
 Reads /tmp/pn_crawl/extract_<slug>.md (markdown-ish dump produced from
 content.json) and writes practicenow-static/<slug>/index.html.
@@ -18,14 +18,6 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC_DIR = Path('/tmp/pn_crawl')
 
 PAGES = [
-    {
-        'slug': 'feature-updates',
-        'out': 'feature-updates/index.html',
-        'eyebrow': 'Release notes',
-        'title': 'Feature updates',
-        'subtitle': "What's new in PracticeNow. Recent improvements that save you time.",
-        'meta_desc': 'Recent feature updates and improvements to PracticeNow.',
-    },
     {
         'slug': 'privacy',
         'out': 'privacy/index.html',
@@ -132,10 +124,7 @@ def linkify(text: str) -> str:
     return text
 
 
-DATE_RE = re.compile(r'^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},\s*\d{4}$')
-
-
-def render_blocks(blocks, *, is_release_notes: bool, page_title: str) -> str:
+def render_blocks(blocks, *, page_title: str) -> str:
     out = []
     real_h2_count = 0
     title_lower = page_title.strip().lower()
@@ -150,16 +139,9 @@ def render_blocks(blocks, *, is_release_notes: bool, page_title: str) -> str:
                     continue
             real_h2_count += 1
             cls = 'text-2xl font-bold text-slate-900 mt-12 mb-4'
-            if is_release_notes:
-                if re.match(r'^\[New feature\]|^Enhancement|^New Feature', val, re.I):
-                    cls = 'text-2xl font-bold text-slate-900 mt-2 mb-4'
-                elif DATE_RE.match(val):
-                    cls = 'text-xs font-semibold tracking-[0.18em] uppercase text-brand-600 mt-14 mb-2'
             out.append(f'<h2 class="{cls}">{linkify(val)}</h2>')
         elif kind == 'p':
             cls = 'text-slate-700 leading-relaxed mb-4'
-            if is_release_notes and DATE_RE.match(val.strip()):
-                cls = 'text-xs font-semibold tracking-[0.18em] uppercase text-brand-600 mt-14 mb-2'
             out.append(f'<p class="{cls}">{linkify(val)}</p>')
         elif kind == 'ul':
             items = '\n'.join(f'  <li>{linkify(it)}</li>' for it in val)
@@ -215,11 +197,7 @@ def main():
             print('skip (missing):', src)
             continue
         blocks = parse_blocks(src.read_text())
-        body = render_blocks(
-            blocks,
-            is_release_notes=(cfg['slug'] == 'feature-updates'),
-            page_title=cfg['title'],
-        )
+        body = render_blocks(blocks, page_title=cfg['title'])
         out = ROOT / cfg['out']
         out.parent.mkdir(parents=True, exist_ok=True)
         html_doc = PAGE_TEMPLATE.format(body=body, **cfg)

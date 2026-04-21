@@ -26,7 +26,7 @@
         // Known top-level subdirs that indicate we are at site root.
         const knownTop = new Set([
             'about', 'teachers', 'support', 'features',
-            'feature-updates', 'privacy',
+            'privacy',
             'terms-conditions', 'terms-service',
             'index.html'
         ]);
@@ -42,9 +42,9 @@
     const NAV = [
         { label: 'Features', href: url('/features/') },
         { label: 'Teachers', href: url('/teachers/') },
-        { label: 'Updates', href: url('/feature-updates/') },
         { label: 'Support', href: url('/support/') },
-        { label: 'About',    href: url('/about/') }
+        { label: 'Pricing', href: APP_PRICING_URL },
+        { label: 'About', href: url('/about/') }
     ];
 
     function ensureFavicon() {
@@ -63,6 +63,7 @@
 
     function buildHeader() {
         const isCurrent = (href) => {
+            if (/^https?:\/\//.test(href)) return false;
             const path = window.location.pathname.replace(/\/+$/, '/') || '/';
             const target = href.replace(/\/+$/, '/') || '/';
             if (target === url('/') ) return path === url('/') || path === '/';
@@ -93,7 +94,6 @@
         ${navLinks}
       </nav>
       <div class="hidden md:flex items-center gap-3">
-        <a href="${APP_PRICING_URL}" class="text-sm font-medium text-slate-700 hover:text-brand-700 px-3 py-2 transition-colors">Pricing</a>
         <a href="${APP_TRIAL_URL}" class="inline-flex items-center px-4 py-2 rounded-lg bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold shadow-sm hover:shadow transition-all">Try it free</a>
       </div>
       <button type="button" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-slate-700 hover:bg-slate-100" aria-label="Open menu" data-pn-menu-toggle>
@@ -104,7 +104,6 @@
   <div class="md:hidden border-t border-slate-200 bg-white hidden" data-pn-mobile-drawer>
     ${navLinksMobile}
     <div class="border-t border-slate-200 mt-2 pt-2 px-4 pb-4 flex flex-col gap-2">
-      <a href="${APP_PRICING_URL}" class="block px-2 py-2 text-slate-700 font-medium">Pricing</a>
       <a href="${APP_TRIAL_URL}" class="block w-full text-center px-4 py-2.5 rounded-lg bg-brand-600 text-white font-semibold">Try it free</a>
     </div>
   </div>
@@ -143,7 +142,6 @@
           <li><a href="${url('/features/')}" class="text-slate-400 hover:text-white transition-colors">Features</a></li>
           <li><a href="${APP_PRICING_URL}" class="text-slate-400 hover:text-white transition-colors">Pricing</a></li>
           <li><a href="${url('/teachers/')}" class="text-slate-400 hover:text-white transition-colors">Teachers</a></li>
-          <li><a href="${url('/feature-updates/')}" class="text-slate-400 hover:text-white transition-colors">Updates</a></li>
           <li><a href="${APP_TRIAL_URL}" class="text-slate-400 hover:text-white transition-colors">Try it free</a></li>
         </ul>
       </div>
