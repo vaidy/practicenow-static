@@ -49,6 +49,20 @@ python3 -m http.server 8080
 # open http://localhost:8080
 ```
 
+## Rebuild Tailwind CSS
+
+`css/tailwind.css` is precompiled and committed. Rebuild it whenever you add new Tailwind utility classes to any HTML file (Tailwind v4 only emits the classes it sees in source files):
+
+```sh
+# from this directory:
+../marketing/node_modules/.bin/tailwindcss -i ./css/input.css -o ./css/tailwind.css --minify
+
+# or, after `npm install`:
+npm run build:css
+```
+
+Source: `css/input.css` (Tailwind v4 with `@theme` brand tokens and `@source` globs that scan all HTML and JS in this folder).
+
 ---
 
 ## Layout & design

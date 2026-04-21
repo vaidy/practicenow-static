@@ -5,8 +5,13 @@
   "description": "Static marketing site for practicenow.us, hosted on GitHub Pages.",
   "scripts": {
     "serve": "python3 -m http.server 8080",
+    "build:css": "tailwindcss -i ./css/input.css -o ./css/tailwind.css --minify",
     "build:legal": "python3 scripts/build_legal_pages.py",
     "download:images": "python3 scripts/download_images.py"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
   },
   "license": "UNLICENSED"
 }
