@@ -132,18 +132,35 @@ def linkify(text: str) -> str:
     return text
 
 
-def render_blocks(blocks, *, is_release_notes: bool) -> str:
+DATE_RE = re.compile(r'^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d{1,2},\s*\d{4}$')
+
+
+def render_blocks(blocks, *, is_release_notes: bool, page_title: str) -> str:
     out = []
+    real_h2_count = 0
+    title_lower = page_title.strip().lower()
+    title_tokens = set(re.split(r'[\s&]+', title_lower)) - {''}
     for i, (kind, val) in enumerate(blocks):
         if kind == 'h2':
+            v = val.strip().lower()
+            if real_h2_count < 2:
+                v_tokens = set(re.split(r'[\s&]+', v)) - {''}
+                if v == title_lower or v_tokens.issubset(title_tokens) or title_tokens.issubset(v_tokens):
+                    real_h2_count += 1
+                    continue
+            real_h2_count += 1
             cls = 'text-2xl font-bold text-slate-900 mt-12 mb-4'
-            if is_release_notes and re.match(r'^\[New feature\]|^Enhancement|^New Feature', val, re.I):
-                cls = 'text-2xl font-bold text-slate-900 mt-2 mb-3'
-            elif is_release_notes and re.match(r'^[A-Z][a-z]+ \d', val):
-                cls = 'text-sm font-semibold tracking-[0.18em] uppercase text-brand-600 mt-12 mb-3'
+            if is_release_notes:
+                if re.match(r'^\[New feature\]|^Enhancement|^New Feature', val, re.I):
+                    cls = 'text-2xl font-bold text-slate-900 mt-2 mb-4'
+                elif DATE_RE.match(val):
+                    cls = 'text-xs font-semibold tracking-[0.18em] uppercase text-brand-600 mt-14 mb-2'
             out.append(f'<h2 class="{cls}">{linkify(val)}</h2>')
         elif kind == 'p':
-            out.append(f'<p class="text-slate-700 leading-relaxed mb-4">{linkify(val)}</p>')
+            cls = 'text-slate-700 leading-relaxed mb-4'
+            if is_release_notes and DATE_RE.match(val.strip()):
+                cls = 'text-xs font-semibold tracking-[0.18em] uppercase text-brand-600 mt-14 mb-2'
+            out.append(f'<p class="{cls}">{linkify(val)}</p>')
         elif kind == 'ul':
             items = '\n'.join(f'  <li>{linkify(it)}</li>' for it in val)
             out.append(
@@ -198,7 +215,11 @@ def main():
             print('skip (missing):', src)
             continue
         blocks = parse_blocks(src.read_text())
-        body = render_blocks(blocks, is_release_notes=(cfg['slug'] == 'feature-updates'))
+        body = render_blocks(
+            blocks,
+            is_release_notes=(cfg['slug'] == 'feature-updates'),
+            page_title=cfg['title'],
+        )
         out = ROOT / cfg['out']
         out.parent.mkdir(parents=True, exist_ok=True)
         html_doc = PAGE_TEMPLATE.format(body=body, **cfg)
