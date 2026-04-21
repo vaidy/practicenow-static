@@ -99,8 +99,8 @@ This subfolder is a self-contained git repo (`git init` already done).
 
 3. In **Settings → Pages**:
    - Source: `main` branch, root (`/`).
-   - Custom domain: `practicenow.us` — when you're ready to switch DNS, rename `CNAME.production` → `CNAME` and commit. (It's stored aside so the github.io preview URL works without DNS changes.)
-   - Enforce HTTPS: ✅
+   - Custom domain: `practicenow.us` (the repo includes a `CNAME` file with this hostname).
+   - Enforce HTTPS: ✅ (enable after DNS validates; may take up to ~24h after first successful check).
 4. At the DNS provider for `practicenow.us`, point the apex `A` records (or `ALIAS` / `ANAME`) at GitHub Pages IPs:
 
    ```
