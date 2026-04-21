@@ -66,93 +66,132 @@ STUDIOS = [
     ("yoga-sadhana-mandir.jpg", "Yoga Sadhana Mandir", "ysmyoga.practicenow.us"),
 ]
 
-# Featured testimonials (from /teachers/ page).
+# Featured testimonials, sourced verbatim from https://practicenow.us/teachers/
+# (apostrophes/dashes normalised; HTML entities decoded). Order matches the
+# original page; subdomain mappings come from each testimonial's "Visit site"
+# link on the live page.
 TESTIMONIALS = [
     {
-        "img": "Komal-150x150.png",
+        "img": "komal.jpg",
         "name": "Komal Dubey",
         "title": "Freelance Yoga & Animal Flow Instructor, Mumbai",
         "subdomain": "movementwithkomal.practicenow.us",
-        "quote": "I do not have to follow up for payments or track student attendance anymore. It saves me energy and time, which I can use in coming up with workshops or planning my sequences. PracticeNow is like my online studio. It makes me look more professional, as I schedule classes that learners can join in one click rather than coordinating over WhatsApp.",
+        "quote": "I do not have to follow up for payments or track student attendance anymore. It saves me energy and time which I can use in coming up with workshops or planning my sequences. PracticeNow is like my online studio. It makes me look more professional as I schedule classes that learners can join in one click rather than coordinating over WhatsApp.",
     },
     {
-        "img": "santhanam-100x100.jpg",
+        "img": "santhanam.jpg",
         "name": "Santhanam Sridharan",
-        "title": "Senior Yoga Teacher",
-        "subdomain": "swadhyayyogashala.practicenow.us",
-        "quote": "PracticeNow gave my school a clean, professional online presence. Students can find class times, pay, and join — without me lifting a finger.",
-    },
-    {
-        "img": "rohini-100x100.jpg",
-        "name": "Rohini Manohar",
         "title": "Founder, Chakra Project",
         "subdomain": "chakraproject.practicenow.us",
-        "quote": "The team at PracticeNow listens. Every feature I asked for in my first three months has shipped. They genuinely care about teachers' growth.",
+        "quote": "Maintaining excel sheets, making a list of whom to call, what to talk about, when to call, date and time — I have done it all. And I know how it can suck the time away from the things you want to do. When I saw PracticeNow, I said I am immediately taking it. I would definitely recommend PracticeNow. Don't even think twice.",
     },
     {
-        "img": "vikar-100x100.jpg",
+        "img": "rohini.jpg",
+        "name": "Rohini Manohar",
+        "title": "Founder, Chennai Yoga Studio, Chennai",
+        "subdomain": "chennaiyoga.practicenow.us",
+        "quote": "As a teacher, my first love is always teaching. To be bogged down by all the other work was taking away from what I could do as a teacher. What's more, the team at PracticeNow actually cares and listens. Suggestions are actually heard. This makes a world of difference.",
+    },
+    {
+        "img": "vikar.jpg",
         "name": "Vikas Shenoy",
         "title": "Founder, Pancha Yoga",
         "subdomain": "panchayoga.practicenow.us",
-        "quote": "I no longer have to chase fees. I no longer have to maintain spreadsheets. I no longer have to share links every class. PracticeNow handles all of it.",
+        "quote": "Earlier, I would hardly sleep at the start and the end of each month. Students from different time zones would pay at 2 AM and expect a Zoom link overnight. Also, when they transferred fees I just couldn't figure out who did. PracticeNow has saved 80% to 90% of my time. I can find time to watch IPL, play with my children, do personal practice, learn something new.",
+    },
+    {
+        "img": "Regeesh-Vattakandy-e1643975730328.jpg",
+        "name": "Regeesh Vattakandy",
+        "title": "Founder, Aayana",
+        "subdomain": "aayana.practicenow.us",
+        "quote": "Before PracticeNow, we used to send Zoom links and manually mark attendance. It was complicated. With PracticeNow we can see what time who attended the class. It's made our lives much more free. Students can see the schedule and buy the package online — we don't have to send the details. They can also see how many classes they have left before their package expires.",
+    },
+    {
+        "img": "meghna.jpg",
+        "name": "Meghna KV",
+        "title": "Founder, The Ayuh Project",
+        "subdomain": "theayuhproject.practicenow.us",
+        "quote": "PracticeNow gives you a website of your own. The video recordings are something that the students are enjoying so much. Most of my students are working professionals and a few are school-going students as well, so if they do miss out on classes, they can go back and watch these recorded class videos and practice by themselves.",
+    },
+    {
+        "img": "Sabir-150x150.jpg",
+        "name": "Sabir Sheikh",
+        "title": "Founder, Yoga Sadhana Mandir",
+        "subdomain": "ysmyoga.practicenow.us",
+        "quote": "Video recordings are really helping us and our students. People who were not able to join our live sessions are now able to go through the recordings, and enjoy them at a different time of the day on their own. They are also subscribing in order to access these video recordings. My yoga text students especially use them to revise what has been taught.",
     },
     {
         "img": "Sivakumar-Puthenmadathil-yoga-teacher.jpg",
         "name": "Sivakumar Puthenmadathil",
-        "title": "Yoga Teacher",
-        "subdomain": "chennaiyoga.practicenow.us",
-        "quote": "Even my older students manage their own subscriptions on PracticeNow. The interface is genuinely simple — that's its biggest superpower.",
+        "title": "Founder, 6 AM Yoga",
+        "subdomain": "6am.practicenow.us",
+        "quote": "It eliminates manual and non-productive work of monitoring attendance, payments and billing cycles. It is highly user-friendly and professional. People join the class, make payments, mark attendance, all on their own. Plus, whenever I am stuck, the support from PracticeNow is just flawless. I raise a ticket on Instagram or WhatsApp, and immediately someone helps me bounce back.",
     },
     {
         "img": "jaya-ramesh-yoga-teacher.jpg",
         "name": "Jaya Ramesh",
-        "title": "Yoga Teacher",
-        "subdomain": "ekatva.practicenow.us",
-        "quote": "I run multiple class formats — group, personal, workshops. PracticeNow handles all of them in one place, with one set of plans and one set of payments.",
+        "title": "Founder, Param Yoga",
+        "subdomain": "paramyoga.practicenow.us",
+        "quote": "When COVID started, it became a nightmare for me to manage the volume of members, to see how many classes they have attended. PracticeNow's recorded videos and the Zoom class feature has helped us a lot with invoicing and tracking who has paid and who has not. I recommend it to anybody who takes classes online — be it music or dance. This software will make your life easier.",
     },
     {
         "img": "Chandraprakash-R-yoga-teacher.jpg",
         "name": "Chandraprakash R",
-        "title": "Yoga Teacher",
-        "subdomain": "samyama.practicenow.us",
-        "quote": "International payments used to be a nightmare. Now my students in 6 countries pay me in their local currency, and I get my money in INR. Zero forex headaches.",
+        "title": "Founder, Uddiyana Yoga",
+        "subdomain": "uddiyanayoga.practicenow.us",
+        "quote": "This past year I couldn't have gone through without PracticeNow. I was spending a lot of time not teaching and just managing attendance and finances. PracticeNow has helped me track who is regular each month and how much money I have made through group or private classes.",
     },
     {
         "img": "rani-naveen-yoga-teacher.jpg",
         "name": "Rani Naveen",
         "title": "Founder, Prerana Yoga Shala",
         "subdomain": "preranayogashala.practicenow.us",
-        "quote": "Subscriptions, attendance, reminders — all on autopilot. I finally feel like I'm running a real business, not chasing receipts.",
+        "quote": "Because of USA and India pricing flexibility, my finances have become so strong. Earlier, I had to keep everything in mind, collect fees and ensure I don't ask for fees from someone who's already paid. Also, students who missed classes asked for refund. But with PracticeNow, the subscription automatically ends on the expiry date. After that, they need to renew it. I now don't need to worry about scheduling classes, collecting fees, or charging appropriately.",
     },
     {
         "img": "Nita-Saini-yoga-teacher.jpg",
         "name": "Nita Saini",
-        "title": "Yoga Teacher",
-        "subdomain": None,
-        "quote": "The free trial gave me everything I needed to convince myself. By day three I had migrated all my students. By day ten I'd run my first online workshop.",
+        "title": "Founder, Swadhyay Yoga Shala",
+        "subdomain": "swadhyayyogashala.practicenow.us",
+        "quote": "One day while sleeping I got a call. I said I can forward you the class link and you can GPay me. But he said army protocols required a QR code. That same evening I called up PracticeNow. Now my students find it very easy to pay. If homemakers miss the morning class, they have the flexibility to attend the 7:30 class or the afternoon class, or mid-evening class — and their money is not wasted. PracticeNow helps deliver customer satisfaction.",
     },
     {
         "img": "Soorya-Senthil-Kumar-yoga-teacher.jpg",
         "name": "Soorya Senthil Kumar",
-        "title": "Yoga Teacher",
-        "subdomain": None,
-        "quote": "I came to PracticeNow for the payments. I stayed for the storyteller — automated WhatsApp sequences that warm up new inquiries while I sleep.",
+        "title": "Founder, Lockdown Fitness",
+        "subdomain": "lockdownfitness.practicenow.us",
+        "quote": "I am a very messy person but at work, I like to stay organized. I saw PracticeNow could make my setup look professional. Participants could pay on the site rather than needing our bank details. Our PracticeNow site looks very nice and gives all the details about our team and our Instagram feed. We do not need to share Zoom links for every class. If someone doesn't show up, that is logged in. It also tracks how much we've made in revenue each month.",
     },
 ]
 
-def img(path):
-    """Return image path if downloaded, else placeholder."""
-    full = "images/wp/" + path
-    if os.path.exists(os.path.join(ROOT, full)):
-        return full
-    # try url-encoded version
-    return "images/wp/" + path
+def initials(name: str) -> str:
+    parts = [p for p in name.replace(".", " ").split() if p]
+    if not parts:
+        return "?"
+    if len(parts) == 1:
+        return parts[0][:2].upper()
+    return (parts[0][0] + parts[-1][0]).upper()
+
+def avatar_html(t):
+    """<img> if the local file exists, otherwise an initials-circle fallback."""
+    fname = t["img"]
+    if fname and os.path.exists(os.path.join(ROOT, "images", "wp", fname)):
+        return (
+            f'<img src="../images/wp/{fname}" alt="{html.escape(t["name"])}" '
+            f'class="w-12 h-12 rounded-full object-cover bg-slate-100 flex-shrink-0" loading="lazy">'
+        )
+    return (
+        f'<div class="w-12 h-12 rounded-full bg-brand-100 text-brand-700 '
+        f'font-semibold flex items-center justify-center flex-shrink-0" '
+        f'aria-label="{html.escape(t["name"])}">{initials(t["name"])}</div>'
+    )
 
 def render_testimonial(t):
-    avatar = img(t["img"])
     sub = ""
     if t.get("subdomain"):
-        sub = f'<a href="https://{t["subdomain"]}" target="_blank" rel="noopener" class="text-brand-600 hover:text-brand-700 text-sm font-medium">{t["subdomain"]}</a>'
+        sub = (f'<a href="https://{t["subdomain"]}" target="_blank" rel="noopener" '
+               f'class="text-brand-600 hover:text-brand-700 text-sm font-medium">'
+               f'{t["subdomain"]}</a>')
     return f'''
 <article class="bg-white border border-slate-200 rounded-2xl p-6 sm:p-8">
     <svg class="w-8 h-8 text-brand-600 mb-4" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
@@ -160,7 +199,7 @@ def render_testimonial(t):
     </svg>
     <p class="text-slate-700 leading-relaxed mb-6 text-base">{html.escape(t["quote"])}</p>
     <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
-        <img src="{avatar}" alt="{html.escape(t["name"])}" class="w-12 h-12 rounded-full object-cover bg-slate-100" loading="lazy">
+        {avatar_html(t)}
         <div class="min-w-0">
             <div class="font-semibold text-slate-900">{html.escape(t["name"])}</div>
             <div class="text-xs text-slate-500 truncate">{html.escape(t["title"])}</div>
