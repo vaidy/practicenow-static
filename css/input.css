@@ -4,12 +4,13 @@
 @source "../js/**/*.js";
 
 @theme {
-  --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
-  --color-brand-900: #312e81;
+  /* Aligned with app.practicenow.us student/trial UI (primary buttons #00be8d / hover #00a57a) */
+  --color-brand-50: #edfcf7;
+  --color-brand-100: #d1f5e8;
+  --color-brand-500: #00c896;
+  --color-brand-600: #00be8d;
+  --color-brand-700: #00a57a;
+  --color-brand-900: #0f3d32;
 
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, sans-serif;

@@ -52,9 +52,9 @@
         const link = document.createElement('link');
         link.rel = 'icon';
         link.type = 'image/svg+xml';
-        // Tiny inline indigo "PN" mark
+        // Tiny inline brand "PN" mark (matches app primary green #00be8d)
         const svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">' +
-            '<rect width="64" height="64" rx="14" fill="#4f46e5"/>' +
+            '<rect width="64" height="64" rx="14" fill="#00be8d"/>' +
             '<text x="32" y="42" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="30" fill="white">PN</text>' +
             '</svg>';
         link.href = 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
@@ -87,7 +87,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <a href="${url('/')}" class="flex items-center gap-2 group">
-        <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-brand-600 text-white font-extrabold text-sm shadow-sm group-hover:bg-brand-700 transition-colors">PN</span>
+          <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-brand-600 text-white font-extrabold text-sm shadow-sm group-hover:bg-brand-700 transition-colors">PN</span>
         <span class="text-lg font-extrabold tracking-tight text-slate-900">PracticeNow</span>
       </a>
       <nav class="hidden md:flex items-center gap-1" aria-label="Primary">
