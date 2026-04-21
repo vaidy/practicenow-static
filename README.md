@@ -26,7 +26,7 @@ The previous WordPress site was infected with malware and was time-consuming to 
 | `/` | Home |
 | `/about/` | About PracticeNow / Spark |
 | `/teachers/` | Customer studios + testimonials |
-| `/features/` | All 9 product capabilities, in one page |
+| `/features/` | All product capabilities, in one page |
 | `/support/` | Onboarding + how to contact us |
 | `/privacy/` | Privacy policy |
 | `/terms-conditions/` | User terms & conditions |
