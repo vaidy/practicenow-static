@@ -133,7 +133,7 @@
           <span class="text-lg font-extrabold text-white">PracticeNow</span>
         </a>
         <p class="text-sm text-slate-400 leading-relaxed">
-          The all-in-one business app for independent teachers. We accelerate teachers' growth with online payments, class management, stories &amp; community engagement.
+          The all-in-one business app for independent teachers. We accelerate teachers' growth with online payments, class management, and everything that keeps a teaching business running.
         </p>
       </div>
       <div>

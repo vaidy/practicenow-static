@@ -125,7 +125,7 @@ TESTIMONIALS = [
         "name": "Sivakumar Puthenmadathil",
         "title": "Founder, 6 AM Yoga",
         "subdomain": "6am.practicenow.us",
-        "quote": "It eliminates manual and non-productive work of monitoring attendance, payments and billing cycles. It is highly user-friendly and professional. People join the class, make payments, mark attendance, all on their own. Plus, whenever I am stuck, the support from PracticeNow is just flawless. I raise a ticket on Instagram or WhatsApp, and immediately someone helps me bounce back.",
+        "quote": "It eliminates manual and non-productive work of monitoring attendance, payments and billing cycles. It is highly user-friendly and professional. People join the class, make payments, mark attendance, all on their own. Plus, whenever I am stuck, the support from PracticeNow is just flawless. I raise a ticket on WhatsApp, and immediately someone helps me bounce back.",
     },
     {
         "img": "jaya-ramesh-yoga-teacher.jpg",
@@ -160,7 +160,7 @@ TESTIMONIALS = [
         "name": "Soorya Senthil Kumar",
         "title": "Founder, Lockdown Fitness",
         "subdomain": "lockdownfitness.practicenow.us",
-        "quote": "I am a very messy person but at work, I like to stay organized. I saw PracticeNow could make my setup look professional. Participants could pay on the site rather than needing our bank details. Our PracticeNow site looks very nice and gives all the details about our team and our Instagram feed. We do not need to share Zoom links for every class. If someone doesn't show up, that is logged in. It also tracks how much we've made in revenue each month.",
+        "quote": "I am a very messy person but at work, I like to stay organized. I saw PracticeNow could make my setup look professional. Participants could pay on the site rather than needing our bank details. Our PracticeNow site looks very nice and gives all the details about our team, classes, and plans. We do not need to share Zoom links for every class. If someone doesn't show up, that is logged in. It also tracks how much we've made in revenue each month.",
     },
 ]
 
