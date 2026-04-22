@@ -24,7 +24,7 @@ The previous WordPress site was infected with malware and was time-consuming to 
 | URL | Purpose |
 | --- | --- |
 | `/` | Home |
-| `/about/` | About PracticeNow / Spark |
+| `/about-us/` | About PracticeNow / Spark |
 | `/teachers/` | Customer studios + testimonials |
 | `/features/` | All product capabilities, in one page |
 | `/support/` | Onboarding + how to contact us |
@@ -118,7 +118,7 @@ This subfolder is a self-contained git repo (`git init` already done).
 
 All pages are hand-written HTML using Tailwind utility classes.
 
-- Marketing pages (home / about / features / support / teachers): edit the `index.html` directly.
+- Marketing pages (home / about-us / features / support / teachers): edit the `index.html` directly.
 - Legal pages (`privacy`, `terms-conditions`, `terms-service`): regenerate via
 
   ```sh

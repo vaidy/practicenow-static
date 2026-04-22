@@ -25,7 +25,7 @@
         const first = segments[0];
         // Known top-level subdirs that indicate we are at site root.
         const knownTop = new Set([
-            'about', 'teachers', 'support', 'features',
+            'about', 'about-us', 'teachers', 'support', 'features',
             'privacy',
             'terms-conditions', 'terms-service',
             'index.html'
@@ -44,7 +44,7 @@
         { label: 'Teachers', href: url('/teachers/') },
         { label: 'Support', href: url('/support/') },
         { label: 'Pricing', href: APP_PRICING_URL },
-        { label: 'About', href: url('/about/') }
+        { label: 'About', href: url('/about-us/') }
     ];
 
     function ensureFavicon() {
@@ -148,7 +148,7 @@
       <div>
         <h3 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h3>
         <ul class="space-y-3 text-sm">
-          <li><a href="${url('/about/')}" class="text-slate-400 hover:text-white transition-colors">About us</a></li>
+          <li><a href="${url('/about-us/')}" class="text-slate-400 hover:text-white transition-colors">About us</a></li>
           <li><a href="${url('/support/')}" class="text-slate-400 hover:text-white transition-colors">Support</a></li>
           <li><a href="${url('/privacy/')}" class="text-slate-400 hover:text-white transition-colors">Privacy</a></li>
           <li><a href="${url('/terms-conditions/')}" class="text-slate-400 hover:text-white transition-colors">Terms &amp; Conditions</a></li>
