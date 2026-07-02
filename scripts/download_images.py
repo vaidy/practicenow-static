@@ -21,8 +21,7 @@ from urllib.request import Request, urlopen
 from urllib.parse import urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = os.path.join(ROOT, "docs")
-OUT_DIR = os.path.join(SITE, "images", "wp")
+OUT_DIR = os.path.join(ROOT, "images", "wp")
 os.makedirs(OUT_DIR, exist_ok=True)
 
 CONTENT_JSON = "/tmp/pn_crawl/content.json"
@@ -130,7 +129,7 @@ def main():
         ok += 1
         manifest[url] = "images/wp/" + fname
     print(f"\nOK: {ok}   BAD: {bad}   ALREADY-PRESENT: {skipped_existing}")
-    manifest_path = os.path.join(SITE, "images", "wp", "_manifest.json")
+    manifest_path = os.path.join(ROOT, "images", "wp", "_manifest.json")
     with open(manifest_path, "w") as fh:
         json.dump(manifest, fh, indent=2)
     print(f"Manifest written to {manifest_path}")

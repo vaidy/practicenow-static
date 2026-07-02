@@ -4,8 +4,7 @@ and a 'trusted by' grid of all customer studios."""
 import os, json, html
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = os.path.join(ROOT, "docs")
-MANIFEST = json.load(open(os.path.join(SITE, "images/wp/_manifest.json")))
+MANIFEST = json.load(open(os.path.join(ROOT, "images/wp/_manifest.json")))
 
 # Map studio image filename → (display name, subdomain).
 # Subdomains pulled from earlier crawl of teachers/ internal links.
@@ -176,7 +175,7 @@ def initials(name: str) -> str:
 def avatar_html(t):
     """<img> if the local file exists, otherwise an initials-circle fallback."""
     fname = t["img"]
-    if fname and os.path.exists(os.path.join(SITE, "images", "wp", fname)):
+    if fname and os.path.exists(os.path.join(ROOT, "images", "wp", fname)):
         return (
             f'<img src="../images/wp/{fname}" alt="{html.escape(t["name"])}" '
             f'class="w-12 h-12 rounded-full object-cover bg-slate-100 flex-shrink-0" loading="lazy">'
@@ -212,7 +211,7 @@ def render_testimonial(t):
 def render_studio(s):
     fname, name, sub = s
     src = "../images/wp/" + fname
-    if not os.path.exists(os.path.join(SITE, "images/wp", fname)):
+    if not os.path.exists(os.path.join(ROOT, "images/wp", fname)):
         return ""
     if sub:
         return f'''<a href="https://{sub}" target="_blank" rel="noopener" class="group block">
@@ -302,7 +301,7 @@ PAGE = f'''<!DOCTYPE html>
 </body>
 </html>'''
 
-OUT = os.path.join(SITE, "teachers", "index.html")
+OUT = os.path.join(ROOT, "teachers", "index.html")
 with open(OUT, "w") as fh:
     fh.write(PAGE)
 print(f"wrote {OUT} ({len(PAGE)} bytes)")
