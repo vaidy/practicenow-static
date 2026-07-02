@@ -15,6 +15,7 @@ import html
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+SITE = ROOT / 'site'
 SRC_DIR = Path('/tmp/pn_crawl')
 
 PAGES = [
@@ -198,7 +199,7 @@ def main():
             continue
         blocks = parse_blocks(src.read_text())
         body = render_blocks(blocks, page_title=cfg['title'])
-        out = ROOT / cfg['out']
+        out = SITE / cfg['out']
         out.parent.mkdir(parents=True, exist_ok=True)
         html_doc = PAGE_TEMPLATE.format(body=body, **cfg)
         out.write_text(html_doc)

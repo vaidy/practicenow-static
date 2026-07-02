@@ -1,42 +1,41 @@
-# practicenow.us — static marketing site
+# practicenow.us — static marketing site (repo)
 
-Static HTML/CSS/JS clone of the previous WordPress marketing site at `practicenow.us`.
+Static HTML/CSS/JS marketing site for **practicenow.us**, hosted on **GitHub Pages**.
 
-Hosted on **GitHub Pages** with the custom domain **practicenow.us**.
+| Path | Purpose |
+|------|---------|
+| `site/` | **Published** web root (only this folder is deployed to GitHub Pages) |
+| `scripts/` | Build helpers (legal pages, teachers page, image download) — **not published** |
+| `README.md` | Developer notes — **not published** |
 
-The product app remains at **app.practicenow.us** (unchanged). All "Try it Free" / "Pricing" / sign-in CTAs point there.
-
----
-
-## Why a static site?
-
-The previous WordPress site was infected with malware and was time-consuming to maintain. This static rebuild:
-
-- Has zero dynamic surface area (no PHP, no DB, no admin login).
-- Reuses the design system from the Sparktutor marketing site (Tailwind, Inter, indigo brand colour).
-- Is hosted on GitHub Pages — free, fast, with HTTPS.
-- Costs nothing to operate.
+The product app remains at **app.practicenow.us**. CTAs point there.
 
 ---
 
-## Pages
+## Why static?
 
-| URL | Purpose |
+In **April 2026** we replaced the legacy WordPress marketing site with this static rebuild:
+
+- No PHP, database, or WordPress admin surface
+- Hand-written HTML + Tailwind CSS
+- Hosted on GitHub Pages behind Cloudflare
+
+---
+
+## Pages (under `site/`)
+
+| URL | File |
 | --- | --- |
-| `/` | Home |
-| `/about-us/` | About PracticeNow / Spark |
-| `/teachers/` | Customer studios + testimonials |
-| `/features/` | All product capabilities, in one page |
-| `/support/` | Onboarding + how to contact us |
-| `/privacy/` | Privacy policy |
-| `/terms-conditions/` | User terms & conditions |
-| `/terms-service/` | Customer terms of service |
+| `/` | `site/index.html` |
+| `/about-us/` | `site/about-us/index.html` |
+| `/teachers/` | `site/teachers/index.html` |
+| `/features/` | `site/features/index.html` |
+| `/support/` | `site/support/index.html` |
+| `/privacy/` | `site/privacy/index.html` |
+| `/terms-conditions/` | `site/terms-conditions/index.html` |
+| `/terms-service/` | `site/terms-service/index.html` |
 
-External links:
-
-- **App / sign-in / pricing:** `https://app.practicenow.us`
-- **WhatsApp:** `https://wa.me/917899156587`
-- **Help center:** `https://practicenow.crisp.help`
+External: **app** / pricing → `https://app.practicenow.us`
 
 ---
 
@@ -44,93 +43,45 @@ External links:
 
 ```sh
 cd practicenow-static
-python3 -m http.server 8080
+npm run serve
 # open http://localhost:8080
 ```
 
+Or: `python3 -m http.server 8080 --directory site`
+
+---
+
 ## Rebuild Tailwind CSS
 
-`css/tailwind.css` is precompiled and committed. Rebuild it whenever you add new Tailwind utility classes to any HTML file (Tailwind v4 only emits the classes it sees in source files):
-
 ```sh
-# from this directory:
-../marketing/node_modules/.bin/tailwindcss -i ./css/input.css -o ./css/tailwind.css --minify
-
-# or, after `npm install`:
 npm run build:css
 ```
 
-Source: `css/input.css` (Tailwind v4 with `@theme` brand tokens and `@source` globs that scan all HTML and JS in this folder).
+Source: `site/css/input.css` → output `site/css/tailwind.css`
 
 ---
 
-## Layout & design
+## Deploy (GitHub Pages)
 
-- Tailwind CSS is precompiled in `css/tailwind.css` (copied from the Sparktutor marketing site).
-- `js/layout.js` injects the header, footer, favicon and floating WhatsApp button on every page.
-  - Brand wordmark: `PracticeNow` next to a small "PN" rounded-square logo.
-  - Nav: Features · Teachers · Support · Pricing (→ app) · About.
-  - CTA: **Try it Free** → `https://app.practicenow.us/trial/scale-non-teaching-tasks`.
+1. Push `main` to `https://github.com/vaidy/practicenow-static.git`
+2. **Settings → Pages:** branch `main`, folder **`/site`** (not repo root)
+3. Custom domain: `practicenow.us` (`site/CNAME`)
+4. Apex DNS → GitHub Pages IPs (see GitHub Pages docs)
 
-To change nav/footer content site-wide, edit only `js/layout.js`.
-
----
-
-## Images
-
-All images are downloaded from the old WordPress site into `images/wp/` after passing magic-byte validation (`scripts/download_images.py`).
-
-Only `jpg / png / webp / svg` are kept. SVGs containing `<script>` tags are rejected.
-
----
-
-## Deploy to GitHub Pages
-
-This subfolder is a self-contained git repo (`git init` already done).
-
-1. Create a new GitHub repo, e.g. `practicenow/practicenow-website`.
-2. Add the remote and push:
-
-   ```sh
-   git remote add origin git@github.com:practicenow/practicenow-website.git
-   git branch -M main
-   git push -u origin main
-   ```
-
-3. In **Settings → Pages**:
-   - Source: `main` branch, root (`/`).
-   - Custom domain: `practicenow.us` (the repo includes a `CNAME` file with this hostname).
-   - Enforce HTTPS: ✅ (enable after DNS validates; may take up to ~24h after first successful check).
-4. At the DNS provider for `practicenow.us`, point the apex `A` records (or `ALIAS` / `ANAME`) at GitHub Pages IPs:
-
-   ```
-   185.199.108.153
-   185.199.109.153
-   185.199.110.153
-   185.199.111.153
-   ```
-
-   (`app.practicenow.us` should remain on its current `CNAME` to the product app.)
+**Important:** Publishing from repo root exposes `README.md`, `scripts/`, etc. at `practicenow.us/<filename>`. Always use **`/site`** as the Pages source.
 
 ---
 
 ## Editing content
 
-All pages are hand-written HTML using Tailwind utility classes.
-
-- Marketing pages (home / about-us / features / support / teachers): edit the `index.html` directly.
-- Legal pages (`privacy`, `terms-conditions`, `terms-service`): regenerate via
-
-  ```sh
-  python3 scripts/build_legal_pages.py
-  ```
-
-  The script reads `/tmp/pn_crawl/extract_<slug>.md` (the cleaned markdown extract from the old WordPress HTML).
+- Marketing pages: edit HTML under `site/`
+- Shared header/footer: `site/js/layout.js`
+- Legal pages: `python3 scripts/build_legal_pages.py` (writes under `site/`)
 
 ---
 
-## Safety notes
+## Safety
 
-- No part of this site executes any code copied from the old WordPress install.
-- All JS/CSS in `js/` and `css/` is hand-written or known-good Tailwind output.
-- All downloaded images were re-validated via magic-byte sniffing before being committed.
+- No code from the old WordPress install is executed on this site
+- JS/CSS is hand-written or compiled Tailwind
+- Images under `site/images/wp/` were validated before commit
