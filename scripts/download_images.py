@@ -21,7 +21,7 @@ from urllib.request import Request, urlopen
 from urllib.parse import urlparse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = os.path.join(ROOT, "site")
+SITE = os.path.join(ROOT, "docs")
 OUT_DIR = os.path.join(SITE, "images", "wp")
 os.makedirs(OUT_DIR, exist_ok=True)
 

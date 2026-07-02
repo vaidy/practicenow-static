@@ -15,7 +15,7 @@ import html
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE = ROOT / 'site'
+SITE = ROOT / 'docs'
 SRC_DIR = Path('/tmp/pn_crawl')
 
 PAGES = [

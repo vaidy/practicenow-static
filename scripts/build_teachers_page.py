@@ -4,7 +4,7 @@ and a 'trusted by' grid of all customer studios."""
 import os, json, html
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = os.path.join(ROOT, "site")
+SITE = os.path.join(ROOT, "docs")
 MANIFEST = json.load(open(os.path.join(SITE, "images/wp/_manifest.json")))
 
 # Map studio image filename → (display name, subdomain).

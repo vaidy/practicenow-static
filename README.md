@@ -4,7 +4,7 @@ Static HTML/CSS/JS marketing site for **practicenow.us**, hosted on **GitHub Pag
 
 | Path | Purpose |
 |------|---------|
-| `site/` | **Published** web root (only this folder is deployed to GitHub Pages) |
+| `docs/` | **Published** web root (only this folder is deployed to GitHub Pages) |
 | `scripts/` | Build helpers (legal pages, teachers page, image download) — **not published** |
 | `README.md` | Developer notes — **not published** |
 
@@ -22,18 +22,18 @@ In **April 2026** we replaced the legacy WordPress marketing site with this stat
 
 ---
 
-## Pages (under `site/`)
+## Pages (under `docs/`)
 
 | URL | File |
 | --- | --- |
-| `/` | `site/index.html` |
-| `/about-us/` | `site/about-us/index.html` |
-| `/teachers/` | `site/teachers/index.html` |
-| `/features/` | `site/features/index.html` |
-| `/support/` | `site/support/index.html` |
-| `/privacy/` | `site/privacy/index.html` |
-| `/terms-conditions/` | `site/terms-conditions/index.html` |
-| `/terms-service/` | `site/terms-service/index.html` |
+| `/` | `docs/index.html` |
+| `/about-us/` | `docs/about-us/index.html` |
+| `/teachers/` | `docs/teachers/index.html` |
+| `/features/` | `docs/features/index.html` |
+| `/support/` | `docs/support/index.html` |
+| `/privacy/` | `docs/privacy/index.html` |
+| `/terms-conditions/` | `docs/terms-conditions/index.html` |
+| `/terms-service/` | `docs/terms-service/index.html` |
 
 External: **app** / pricing → `https://app.practicenow.us`
 
@@ -47,7 +47,7 @@ npm run serve
 # open http://localhost:8080
 ```
 
-Or: `python3 -m http.server 8080 --directory site`
+Or: `python3 -m http.server 8080 --directory docs`
 
 ---
 
@@ -57,26 +57,26 @@ Or: `python3 -m http.server 8080 --directory site`
 npm run build:css
 ```
 
-Source: `site/css/input.css` → output `site/css/tailwind.css`
+Source: `docs/css/input.css` → output `docs/css/tailwind.css`
 
 ---
 
 ## Deploy (GitHub Pages)
 
 1. Push `main` to `https://github.com/vaidy/practicenow-static.git`
-2. **Settings → Pages:** branch `main`, folder **`/site`** (not repo root)
-3. Custom domain: `practicenow.us` (`site/CNAME`)
+2. **Settings → Pages:** branch `main`, folder **`/docs`** (not repo root)
+3. Custom domain: `practicenow.us` (`docs/CNAME`)
 4. Apex DNS → GitHub Pages IPs (see GitHub Pages docs)
 
-**Important:** Publishing from repo root exposes `README.md`, `scripts/`, etc. at `practicenow.us/<filename>`. Always use **`/site`** as the Pages source.
+**Important:** Publishing from repo root exposes `README.md`, `scripts/`, etc. at `practicenow.us/<filename>`. Always use **`/docs`** as the Pages source.
 
 ---
 
 ## Editing content
 
-- Marketing pages: edit HTML under `site/`
-- Shared header/footer: `site/js/layout.js`
-- Legal pages: `python3 scripts/build_legal_pages.py` (writes under `site/`)
+- Marketing pages: edit HTML under `docs/`
+- Shared header/footer: `docs/js/layout.js`
+- Legal pages: `python3 scripts/build_legal_pages.py` (writes under `docs/`)
 
 ---
 
@@ -84,4 +84,4 @@ Source: `site/css/input.css` → output `site/css/tailwind.css`
 
 - No code from the old WordPress install is executed on this site
 - JS/CSS is hand-written or compiled Tailwind
-- Images under `site/images/wp/` were validated before commit
+- Images under `docs/images/wp/` were validated before commit
